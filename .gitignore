@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.pnpm-store/
+.img2threejs/
+.DS_Store
+.env*
+!.env.example
