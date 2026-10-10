@@ -7,3 +7,7 @@ Before making substantial visual changes, use the Product Design plugin's `get-c
 When implementing from a selected generated mock, treat that image as the source of truth for layout, component anatomy, density, spacing, color, typography, visible content, and hierarchy.
 
 Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts/prepare-sites-build.mjs`, and `tests/sites-worker.test.mjs` intact so the same local prototype can be handed to Sites. Before a Sites handoff, run `npm run build` and `npm run test:sites`; the build must leave `dist/client/index.html`, `dist/server/index.js`, and `dist/.openai/hosting.json`.
+
+## Deployment
+
+The user chose a public GitHub repository and GitHub Pages hosting so the website can be opened from other devices. Deploy from `main` through `.github/workflows/deploy-pages.yml`. Use `import.meta.env.BASE_URL` for public asset URLs so GitHub Pages repository paths work alongside local preview and Sites builds.

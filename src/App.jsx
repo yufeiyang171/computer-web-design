@@ -5,13 +5,15 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
+const assetUrl = (filename) => `${import.meta.env.BASE_URL}assets/${filename}`;
+
 const sceneBWords = [
-  { src: "/assets/current-b-word-experience.png", className: "word word-experience", alt: "Experience" },
-  { src: "/assets/current-b-word-behavior.png", className: "word word-behavior", alt: "Behavior" },
-  { src: "/assets/current-b-word-story.png", className: "word word-story", alt: "Story" },
-  { src: "/assets/current-b-word-interface.png", className: "word word-interface", alt: "Interface" },
-  { src: "/assets/current-b-word-motion.png", className: "word word-motion", alt: "Motion" },
-  { src: "/assets/current-b-word-emotion.png", className: "word word-emotion", alt: "Emotion" },
+  { src: assetUrl("current-b-word-experience.png"), className: "word word-experience", alt: "Experience" },
+  { src: assetUrl("current-b-word-behavior.png"), className: "word word-behavior", alt: "Behavior" },
+  { src: assetUrl("current-b-word-story.png"), className: "word word-story", alt: "Story" },
+  { src: assetUrl("current-b-word-interface.png"), className: "word word-interface", alt: "Interface" },
+  { src: assetUrl("current-b-word-motion.png"), className: "word word-motion", alt: "Motion" },
+  { src: assetUrl("current-b-word-emotion.png"), className: "word word-emotion", alt: "Emotion" },
 ];
 
 const getScrollDistance = () => Math.max(window.innerHeight * 6.6, 5200);
@@ -34,7 +36,7 @@ const wrapReelScroll = (reel) => {
 const projects = [
   {
     id: "puploop-home",
-    image: "/assets/scene3-project-home.png",
+    image: assetUrl("scene3-project-home.png"),
     label: "PUPLOOP Home",
     meta: "Scene / Portfolio",
     cardTitle: "PUPLOOP APP DESIGN",
@@ -43,7 +45,7 @@ const projects = [
   },
   {
     id: "arcade-cabinet",
-    image: "/assets/scene3-project-arcade.png",
+    image: assetUrl("scene3-project-arcade.png"),
     label: "Arcade Cabinet",
     meta: "Visual / Motion",
     cardTitle: "ARCADE PORTFOLIO",
@@ -52,7 +54,7 @@ const projects = [
   },
   {
     id: "look-this",
-    image: "/assets/scene3-project-arcade-gray.png",
+    image: assetUrl("scene3-project-arcade-gray.png"),
     label: "Look This",
     meta: "Game / Interface",
     cardTitle: "LOOK THIS SYSTEM",
@@ -61,7 +63,7 @@ const projects = [
   },
   {
     id: "open-it",
-    image: "/assets/scene3-project-open.png",
+    image: assetUrl("scene3-project-open.png"),
     label: "Open It",
     meta: "Play / Behavior",
     cardTitle: "OPEN IT EXPERIENCE",
@@ -70,7 +72,7 @@ const projects = [
   },
   {
     id: "welcome-card",
-    image: "/assets/scene3-project-welcome.png",
+    image: assetUrl("scene3-project-welcome.png"),
     label: "Welcome Card",
     meta: "Identity / Story",
     cardTitle: "WELCOME INTERFACE",
@@ -79,7 +81,7 @@ const projects = [
   },
   {
     id: "pixel-loop",
-    image: "/assets/scene3-project-pixel-loop-new.png",
+    image: assetUrl("scene3-project-pixel-loop-new.png"),
     label: "Pixel Loop",
     meta: "Brand / Interaction",
     cardTitle: "PIXEL LOOP",
@@ -88,7 +90,7 @@ const projects = [
   },
   {
     id: "hike-more",
-    image: "/assets/scene3-project-hike.png",
+    image: assetUrl("scene3-project-hike.png"),
     label: "Hike More",
     meta: "Travel / System",
     cardTitle: "HIKE MORE TRAVEL",
@@ -388,10 +390,10 @@ export function App() {
     <main ref={rootRef} className={`page ${activeProjectId ? "has-project-selection" : ""}`}>
       <nav className="fixed-nav" aria-label="Primary navigation">
         <a className="brand-mark" href="#top" aria-label="PUPLOOP home">
-          <img src="/assets/current-a-nav-brand.png" alt="Hello, I'm Puploop" />
+          <img src={assetUrl("current-a-nav-brand.png")} alt="Hello, I'm Puploop" />
         </a>
         <div className="nav-menu" aria-label="Primary sections">
-          <img src="/assets/current-nav-items.png" alt="ABOUT WORK PROCESS CONTACT" />
+          <img src={assetUrl("current-nav-items.png")} alt="ABOUT WORK PROCESS CONTACT" />
           <a className="nav-hit nav-hit-about" href="#top" aria-label="About" />
           <a className="nav-hit nav-hit-work" href="#top" aria-label="Work" />
           <a className="nav-hit nav-hit-process" href="#top" aria-label="Process" />
@@ -404,28 +406,28 @@ export function App() {
             <div className="stage-frame">
               <div className="camera">
               <div className="camera-push">
-                <img className="room-shot room-shot-a" src="/assets/current-scene-a-composed.png" alt="" aria-hidden="true" />
+                <img className="room-shot room-shot-a" src={assetUrl("current-scene-a-composed.png")} alt="" aria-hidden="true" />
                 <div className={`project-tv-preview ${activeProject ? "is-visible" : ""}`} aria-hidden="true">
                   <div className="project-tv-screen">
                     {activeProject && <img src={activeProject.image} alt="" style={{ objectPosition: activeProject.focus }} />}
                   </div>
-                  <img className="project-tv-frame" src="/assets/scene3-tv-empty-frame.png" alt="" />
+                  <img className="project-tv-frame" src={assetUrl("scene3-tv-empty-frame.png")} alt="" />
                 </div>
               </div>
             </div>
 
             <button className="computer-hotspot" type="button" onClick={jumpToMidShot} aria-label="Start exploring PUPLOOP portfolio" />
 
-            <img className="scene-a scene-a-intro" src="/assets/current-a-intro-copy.png" alt="" aria-hidden="true" />
-            <img className="scene-a scene-a-portfolio" src="/assets/current-a-portfolio.png" alt="" aria-hidden="true" />
-            <img className="scene-a scene-a-support" src="/assets/current-a-support.png" alt="" aria-hidden="true" />
+            <img className="scene-a scene-a-intro" src={assetUrl("current-a-intro-copy.png")} alt="" aria-hidden="true" />
+            <img className="scene-a scene-a-portfolio" src={assetUrl("current-a-portfolio.png")} alt="" aria-hidden="true" />
+            <img className="scene-a scene-a-support" src={assetUrl("current-a-support.png")} alt="" aria-hidden="true" />
 
             <div className="scene-b" aria-hidden="true">
-              <img className="scene-b-title" src="/assets/current-b-title.png" alt="" />
+              <img className="scene-b-title" src={assetUrl("current-b-title.png")} alt="" />
               {sceneBWords.map((word) => (
                 <img key={word.alt} className={word.className} src={word.src} alt="" />
               ))}
-              <img className="scene-b-support" src="/assets/current-b-support.png" alt="" />
+              <img className="scene-b-support" src={assetUrl("current-b-support.png")} alt="" />
             </div>
 
             <div className={`scene-3 ${isReelPaused ? "is-paused" : ""} ${activeProject ? "is-selected" : ""}`} aria-label="PUPLOOP project reel">
@@ -476,7 +478,7 @@ export function App() {
             </div>
 
             <div className="scroll-cue" aria-hidden="true">
-              <img src="/assets/current-b-scroll-cue.png" alt="" />
+              <img src={assetUrl("current-b-scroll-cue.png")} alt="" />
             </div>
 
             <div className="film-noise" aria-hidden="true" />
